@@ -13,21 +13,6 @@ namespace Odin.UI.Web
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/jquery-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                "~/Scripts/jquery.unobtrusive*",
-                "~/Scripts/jquery.validate*"));
-
-            bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
-                "~/Scripts/knockout-{version}.js",
-                "~/Scripts/knockout.validation.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/app").Include(
-                "~/Scripts/sammy-{version}.js",
-                "~/Scripts/app/common.js",
-                "~/Scripts/app/app.datamodel.js",
-                "~/Scripts/app/app.viewmodel.js",
-                "~/Scripts/app/home.viewmodel.js",
-                "~/Scripts/app/_run.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
@@ -41,6 +26,57 @@ namespace Odin.UI.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                  "~/Content/bootstrap.css",
                  "~/Content/Site.css"));
+
+            RegisterBaseAngularBundles(bundles);
+            RegisterAngularExternalPluginsBundles(bundles);
+            RegisterAngularApplicationBundles(bundles);
         }
+        private static void RegisterBaseAngularBundles(BundleCollection bundles)
+        {
+            bundles.Add(new ScriptBundle("~/bundles/angular")
+                .Include("~/Scripts/angular.min.js")
+                .Include("~/Scripts/angular-touch.min.js")
+                .Include("~/Scripts/angular-sanitize.min.js")
+                .Include("~/Scripts/angular-route.min.js")
+                .Include("~/Scripts/angular-resource.min.js")
+                .Include("~/Scripts/angular-parse-ext.min.js")
+                .Include("~/Scripts/angular-messages.min.js")
+                .Include("~/Scripts/angular-message-format.min.js")
+                .Include("~/Scripts/angular-loader.min.js")
+                .Include("~/Scripts/angular-cookies.min.js")
+                .Include("~/Scripts/angular-aria.min.js")
+                .Include("~/Scripts/angular-animate.min.js"));
+        }
+
+        private static void RegisterAngularExternalPluginsBundles(BundleCollection bundles)
+        {
+            bundles.Add(new ScriptBundle("~/bundles/angular-plugins")
+                .Include("~/Scripts/angular-plugins/angucomplete-alt.min.js")
+                .Include("~/Scripts/angular-plugins/angular-base64.js")
+                .Include("~/Scripts/angular-plugins/angular-file-upload.js")
+                .Include("~/Scripts/angular-plugins/hotkeys.min.js")
+                .Include("~/Scripts/angular-plugins/ngDialog.min.js")
+                .Include("~/Scripts/angular-plugins/angular-validator.js")
+                .Include("~/Scripts/angular-plugins/toastr.js")
+                .Include("~/Scripts/angular-plugins/loading-bar.js"));
+        }
+
+        private static void RegisterAngularApplicationBundles(BundleCollection bundles)
+        {
+            bundles.Add(new ScriptBundle("~/bundles/app")
+                //Application
+                .Include("~/Scripts/app/app.js")
+                //Modules
+                .Include("~/Scripts/app/modules/common.core.js")
+                .Include("~/Scripts/app/modules/common.ui.js")
+                //Services
+                .Include("~/Scripts/app/services/apiService.js")
+                .Include("~/Scripts/app/services/fileService.js")
+                .Include("~/Scripts/app/services/directoryService.js")
+                .Include("~/Scripts/app/services/notificationService.js")
+                //Controllers
+                .Include("~/Scripts/app/home/homeCtrl.js"));
+        }
+
     }
 }

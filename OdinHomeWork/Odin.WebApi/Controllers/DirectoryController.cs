@@ -6,6 +6,9 @@ using System.Collections.Generic;
 using System.Web.Http;
 namespace Odin.WebApi.Controllers
 {
+    using System.Web.Http.Cors;
+
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class DirectoryController : ApiController
     {
 

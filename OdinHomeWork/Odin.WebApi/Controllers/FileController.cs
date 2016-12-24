@@ -5,8 +5,11 @@ using Odin.Services.LoggingService;
 using Odin.WebApi.Filters;
 using System.Collections.Generic;
 using System.Web.Http;
+using System.Web.Http.Cors;
+
 namespace Odin.WebApi.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [BusinessLogicExceptionFilter]
     public class FileController : ApiController
     {
