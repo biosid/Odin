@@ -34,6 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -41,6 +45,34 @@
     </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Extensions.ContextPreservation, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Extensions.ContextPreservation.3.2.0.0\lib\net45-full\Ninject.Extensions.ContextPreservation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Extensions.NamedScope, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Extensions.NamedScope.3.2.0.0\lib\net45-full\Ninject.Extensions.NamedScope.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common.OwinHost, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.OwinHost.3.2.0.0\lib\net45-full\Ninject.Web.Common.OwinHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.WebApi, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.WebApi.3.2.0.0\lib\net45-full\Ninject.Web.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.WebApi.OwinHost, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.WebApi.OwinHost.3.2.4.0\lib\net45-full\Ninject.Web.WebApi.OwinHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -52,6 +84,10 @@
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Http.Owin, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.0.0\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
@@ -96,8 +132,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ComplexControllersTets.cs" />
+    <Compile Include="Controllers\FileControllerTest.cs" />
+    <Compile Include="DependencyResolution\UnitTestingNinjectModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Controllers\DirectoryControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -106,6 +145,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Odin.DataContract\Odin.DataContract.csproj">
+      <Project>{bab9f8d4-98db-4024-9aca-4f575392a578}</Project>
+      <Name>Odin.DataContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Odin.Services.Configuration\Odin.Services.Configuration.csproj">
+      <Project>{BC8378B4-D28B-47AA-9A83-99970636995E}</Project>
+      <Name>Odin.Services.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Odin.Services\Odin.Services.csproj">
+      <Project>{B21230DB-BC52-4969-B5E6-940187F3F205}</Project>
+      <Name>Odin.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Odin.WebApi\Odin.WebApi.csproj">
       <Project>{AAE17034-8D38-4749-9745-C851D079545A}</Project>
       <Name>Odin.WebApi</Name>
