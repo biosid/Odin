@@ -36,9 +36,10 @@
                         }
                     }, function (error) {
                         if (systemConfig.debugMode) {
-                            console.log("$http.get success:");
+                            console.log("$http.get error:");
                             console.log(error);
                         }
+                        processResponseErrors(error);
                         if (failure != null) {
                             failure(error);
                         }
@@ -46,15 +47,12 @@
         }
 
         function post(url, data, success, failure) {
-            notificationService.showBlockUI();
-
             return $http.post(url, data)
                     .then(function (result) {
                         if (systemConfig.debugMode) {
                             console.log("$http.post success:");
                             console.log(result);
                         }
-                        notificationService.hideBlockUI();
                         success(result);
                     }, function (error) {
                         if (systemConfig.debugMode) {
@@ -62,7 +60,6 @@
                             console.log(error);
                         }
 
-                        notificationService.hideBlockUI();
                         processResponseErrors(error);
                         if (failure != null) {
                             failure(error);

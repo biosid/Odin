@@ -39,7 +39,7 @@ namespace Odin.WebApi.Controllers
 
         [HttpGet]
         [Route("File/Content")]
-        public string Content(string filePath)
+        public FileContentDto Content(string filePath)
         {
             return _fileService.GetContent(filePath);
         }

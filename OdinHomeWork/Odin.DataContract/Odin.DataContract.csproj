@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DirectoryDto.cs" />
+    <Compile Include="FileContentDto.cs" />
     <Compile Include="FileDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

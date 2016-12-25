@@ -7,12 +7,13 @@
 
     function directoryService($http, $location, notificationService, $rootScope, systemConfig, apiService) {
 
+        var webApiUrl = systemConfig.webApiUrl;
+
         var service = {
             getList: getList
         };
 
         function getList(path, completed) {
-            var url = systemConfig.webApiUrl;
             apiService.get(webApiUrl + "Directory/List?path=" + path, { ignoreLoadingBar: true }, completed);
         }
         return service;

@@ -52,7 +52,7 @@ namespace Odin.Services.FileService
 
         #endregion
 
-        public string GetContent(string filePath)
+        public FileContentDto GetContent(string filePath)
         {
             try
             {
@@ -66,7 +66,7 @@ namespace Odin.Services.FileService
 
                 var content = File.ReadAllText(filePath);
 
-                return content;
+                return new FileContentDto() { Content = content };
             }
             catch (BusinessLogicException)
             {
@@ -76,7 +76,7 @@ namespace Odin.Services.FileService
             {
                 _logginingService.LogError(ex, "Error in files listing");
 
-                throw new BusinessLogicException("There are some errors while files listing, try latter", ex);
+                throw new BusinessLogicException($"There are some errors while files listing, try latter. Error Info: {ex.Message}", ex);
             }
         }
 
@@ -84,6 +84,9 @@ namespace Odin.Services.FileService
         {
             try
             {
+                if (string.IsNullOrEmpty(path))
+                    path = _rootDirectoryPath;
+
                 DirectoryInfo directory = new DirectoryInfo(path);
                 var files = directory.GetFiles().AsQueryable().Select(_mapFile).ToList();
                 return files;

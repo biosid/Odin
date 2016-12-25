@@ -3,17 +3,25 @@
     Layout = null;
 }
 
-<h3>Main page</h3>
+<h3>Directory Listing</h3>
 <div class="row">
     <div class="col-md-3">
         <div class="panel panel-default">
             <div class="panel-body">
 
-                <div kendo-tree-view="tree" k-options="treeOption">
+                <div kendo-tree-view="tree" id="treeview" k-options="treeOption">
                 </div>
             </div>
         </div>
     </div>
     <div class="col-md-9">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div kendo-grid="filesGrid" k-options="gridOptions" k-data-source="filesDataSource" k-rebind="gridOptions">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+<div kendo-window="fileContentWindow" k-center="true" k-modal="true" k-title="'File Content'" k-width="600" k-height="600" k-visible="false"></div>

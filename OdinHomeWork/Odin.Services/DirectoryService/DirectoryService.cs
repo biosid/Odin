@@ -49,7 +49,7 @@ namespace Odin.Services.DirectoryService
             {
                 _logginingService.LogError(ex, "Error in directory listing");
 
-                throw new BusinessLogicException("There are some errors while directory listing, try latter", ex);
+                throw new BusinessLogicException($"There are some errors while directory listing, try latter. Error Info: {ex.Message}", ex);
             }
         }
     }

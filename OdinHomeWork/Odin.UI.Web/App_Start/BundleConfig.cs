@@ -25,6 +25,9 @@ namespace Odin.UI.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                  "~/Content/bootstrap.css",
+                 "~/Content/font-awesome.min.css",
+                 "~/Content/toastr.css",
+                 "~/Content/loading-bar.min.css",
                  "~/Content/Site.css"));
 
             RegisterBaseAngularBundles(bundles);

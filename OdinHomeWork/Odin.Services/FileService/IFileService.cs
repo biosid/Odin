@@ -7,7 +7,7 @@ namespace Odin.Services.FileService
     {
         List<FileDto> GetList(string path);
 
-        string GetContent(string filePath);
+        FileContentDto GetContent(string filePath);
 
     }
 }
