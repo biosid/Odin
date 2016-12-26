@@ -4,14 +4,14 @@ using System.Collections.Generic;
 namespace Odin.Services.DirectoryService
 {
     /// <summary>
-    /// Сервис для работы с директориями
+    /// Service for working with directories
     /// </summary>
     public interface IDirectoryService
     {
         /// <summary>
-        /// Получает список директорий по текущему пути
+        /// Gets a list of directories in the current path
         /// </summary>
-        /// <param name="path">Путь к файлу, если путь не указан берется значение по-умолчанию</param>
+        /// <param name="path">The file path, if no path is specified the default value is taken</param>
         /// <returns></returns>
         List<DirectoryDto> GetList(string path);
     }

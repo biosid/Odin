@@ -40,14 +40,11 @@ namespace Odin.WebApi.Tests.Controllers
             {
                 var result = controller.Content(fakeFilePath.ToString());
             }
-            catch (BusinessLogicException ex)
+            catch (FileNotFoundException ex)
             {
+                // Assert
                 Assert.IsNotNull(ex);
-                //По хорошему нужно выкидывавать типизированное исключение, для каждого класса ошибок.
-                Assert.IsTrue(ex.Message == $"There are some errors while files listing, try latter. Error Info: Файл '{fakeFilePath.ToString()}' не найден.");
-            }
-            // Assert
-
+            }        
         }
 
         [TestMethod]
@@ -58,20 +55,17 @@ namespace Odin.WebApi.Tests.Controllers
             var controller = kernel.Get<FileController>();
 
             // Act
-            //Должен быть путь на существующий файл
+            //Need some existing file
             var largeFilePath = "C:\\SomeLargeFile.txt";
             try
             {
                 var result = controller.Content(largeFilePath);
             }
-            catch (BusinessLogicException ex)
+            catch (FileSizeException ex)
             {
+                // Assert
                 Assert.IsNotNull(ex);
-                //По хорошему нужно выкидывавать типизированное исключение, для каждого класса ошибок.
-                Assert.IsTrue(ex.Message == "File is too large");
             }
-            // Assert
-
         }
 
     }

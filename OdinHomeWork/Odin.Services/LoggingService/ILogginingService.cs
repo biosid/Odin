@@ -5,40 +5,40 @@ namespace Odin.Services.LoggingService
     public interface ILogginingService
     {
         /// <summary>
-        /// Лог действия
+        /// log action
         /// </summary>
         /// <param name="message"></param>
         void Log(string message);
 
         /// <summary>
-        /// Лог действия с параметрами
+        /// Log actions with parameters
         /// </summary>
         /// <param name="message"></param>
         /// <param name="args"></param>
         void Log(string message, params object[] args);
 
         /// <summary>
-        /// Лог ошибки
+        /// log errors
         /// </summary>
         /// <param name="message"></param>
         void LogError(string message);
 
         /// <summary>
-        /// Лог ошибки
+        /// log errors
         /// </summary>
         /// <param name="message"></param>
         /// <param name="args"></param>
         void LogError(string message, params object[] args);
 
         /// <summary>
-        /// Лог ошибки с параметрами
+        /// log errors with parameters
         /// </summary>
         /// <param name="exception"></param>
         /// <param name="message"></param>
         void LogError(Exception exception, string message);
 
         /// <summary>
-        /// Лог ошибки с параметрами
+        /// log errors with parameters
         /// </summary>
         /// <param name="exception"></param>
         /// <param name="message"></param>

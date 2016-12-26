@@ -46,6 +46,8 @@
   <ItemGroup>
     <Compile Include="DirectoryService\DirectoryService.cs" />
     <Compile Include="DirectoryService\IDirectoryService.cs" />
+    <Compile Include="Exceptions\FileSizeException.cs" />
+    <Compile Include="Exceptions\FileNotFoundException.cs" />
     <Compile Include="Exceptions\BusinessLogicException.cs" />
     <Compile Include="FileService\FileService.cs" />
     <Compile Include="FileService\IFileService.cs" />

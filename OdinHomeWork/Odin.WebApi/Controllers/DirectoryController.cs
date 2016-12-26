@@ -1,6 +1,5 @@
 ﻿using Odin.DataContract;
 using Odin.Services.DirectoryService;
-using Odin.Services.LoggingService;
 using Odin.WebApi.Filters;
 using System.Collections.Generic;
 using System.Web.Http;

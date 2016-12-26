@@ -1,11 +1,7 @@
 ﻿using Odin.Services.Exceptions;
 using Odin.Services.LoggingService;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Web;
 using System.Web.Helpers;
 using System.Web.Http.Filters;
 

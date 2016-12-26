@@ -58,11 +58,11 @@ namespace Odin.Services.FileService
             {
                 var file = new FileInfo(filePath);
 
-                if (file == null)
-                    throw new BusinessLogicException("File does not exist");
+                if (!file.Exists)
+                    throw new Exceptions.FileNotFoundException("File does not exist");
 
                 if (file.Length > _maxFileSize)
-                    throw new BusinessLogicException("File is too large");
+                    throw new FileSizeException("File is too large");
 
                 var content = File.ReadAllText(filePath);
 

@@ -1,6 +1,4 @@
-﻿using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Odin.WebApi;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Odin.WebApi.Controllers;
 using Ninject;
 using Odin.WebApi.Tests.DependencyResolution;
